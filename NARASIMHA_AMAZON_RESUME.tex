@@ -1,0 +1,131 @@
+% -------------------------------------------------
+% Narasimharao Bhavirisetty – Amazon SDE-1 Resume
+% -------------------------------------------------
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{times}
+
+% ----- Remove blue boxes & underlines from links -----
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+    hidelinks
+}
+
+% ----- Page layout -----
+\geometry{a4paper, margin=0.75in}
+\pagestyle{empty}
+
+% ----- Section heading style -----
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+% ----- Tighten itemize globally -----
+\setlist[itemize]{topsep=1pt, partopsep=0pt, parsep=1pt, itemsep=1pt, leftmargin=*}
+
+% ----- Compact project environment -----
+\newenvironment{project}[2]
+  {\par\textbf{#1}\hfill\textit{#2}\vspace{1pt}\begin{itemize}}
+  {\end{itemize}\vspace{2pt}}
+
+\begin{document}
+
+% ==================== HEADER ====================
+\begin{center}
+  {\huge\textbf{Narasimharao Bhavirisetty}}\\[3pt]
+  Software Engineer \textbullet{} Distributed Systems \& Backend Engineering \\[3pt]
+  Narasaraopet, Andhra Pradesh, India \textbullet{} +91 63032 27485 \textbullet{} narasimharao2743@gmail.com \textbullet{} linkedin.com/in/narasimharao-bhavirisetty-0526891b0
+\end{center}
+
+\vspace{6pt}
+
+% ==================== PROFESSIONAL SUMMARY ====================
+\section*{Professional Summary}
+\vspace{1pt}\hrule\vspace{4pt}
+Software Engineer with 1.6+ years of experience building scalable, distributed backend systems that process high-velocity data at scale. Designed and owned end-to-end pipelines processing 50K+ events/day using Python, Apache Kafka, PyFlink, ClickHouse, and Redis. Proven ability to solve complex, ambiguous problems through data — building fault-tolerant systems, automated monitoring, and metric-driven feedback loops. Experienced in the full software development lifecycle, from system design to production debugging, with a strong focus on simplicity, reliability, and measurable outcomes.
+
+% ==================== TECHNICAL SKILLS ====================
+\section*{Technical Skills}
+\vspace{1pt}\hrule\vspace{4pt}
+\begin{itemize}
+  \item \textbf{Languages}: Python, Java
+  \item \textbf{Distributed Systems}: Apache Kafka, Redpanda, PyFlink (Tumbling Windows, Fault-Tolerant Checkpointing), Event-Driven Architecture
+  \item \textbf{Backend \& APIs}: Flask, FastAPI, REST API Design, Microservices
+  \item \textbf{Databases}: MySQL, MSSQL, ClickHouse, Redis
+  \item \textbf{Libraries}: NumPy, Pandas, Scikit-learn
+  \item \textbf{Concepts}: OOP, SDLC, Agile/Scrum, Unit Testing, Debugging, Code Reviews, Technical Documentation, Clean Code, Version Control (Git)
+  \item \textbf{Tools}: Git, Docker, Postman, VS Code
+  \item \textbf{Cloud}: AWS Basics
+\end{itemize}
+
+% ==================== PROFESSIONAL EXPERIENCE ====================
+\section*{Professional Experience}
+\vspace{1pt}\hrule\vspace{4pt}
+
+\textbf{Software Engineer} \hfill \textbf{Spizen Technologies (CLR3 Ventures), Bangalore, India} \\
+\textit{December 2025 -- Present}
+\begin{itemize}
+  \item Owned and architected an end-to-end distributed data platform processing 50K+ blockchain trade events per day through a multi-stage Kafka $\rightarrow$ PyFlink $\rightarrow$ ClickHouse $\rightarrow$ Redis pipeline, tracking the full token lifecycle from creation to termination.
+  \item Engineered fault-tolerant PyFlink streaming jobs with tumbling-window aggregations and checkpointing, reducing duplicate event records across Kafka topics by $\sim$95\% and ensuring data integrity for downstream analytics consumers.
+  \item Designed and built a behavioral wallet classification engine using pattern analysis and signal scoring to detect wash trading and anomalous activity at scale, improving platform trust and investment signal quality.
+  \item Built a real-time composite scoring system that ingests every on-chain swap event and emits sub-second live investment signals by fusing multi-dimensional metrics --- enabling rapid, data-driven decisions at scale.
+  \item Maintained technical documentation for system architecture, APIs, and component interfaces to support platform stability and team knowledge transfer.
+\end{itemize}
+
+\textbf{Software Engineer} \hfill \textbf{Algonox Technologies Pvt Ltd, Hyderabad, India} \\
+\textit{September 2024 -- December 2025}
+\begin{itemize}
+  \item Improved document data extraction accuracy by 40\% by designing and implementing multi-layered business rule validation to clean and reconcile noisy, unstructured input data at scale.
+  \item Built an automated email notification microservice for file queue transitions and SLA failure alerts using Python and Flask, reducing manual monitoring overhead and improving incident response time.
+  \item Developed an automated KPI reporting module tracking extraction accuracy and manual intervention rates, enabling data-driven performance reviews and reducing manual QA effort by 20\%.
+  \item Implemented a User Dormancy Management Module with scheduled tasks to enforce role-based lifecycle state transitions on configurable inactivity thresholds, strengthening access governance and security compliance.
+  \item Participated actively in Agile/Scrum ceremonies including sprint planning, stand-ups, and retrospectives; contributed to code reviews and maintained clean, well-documented Python codebases.
+\end{itemize}
+
+% ==================== PERSONAL PROJECTS ====================
+\section*{Personal Projects}
+\vspace{1pt}\hrule\vspace{4pt}
+
+\begin{project}{Airline Ticket Price Prediction — ML Regression System}{Python, Scikit-learn, Pandas, NumPy}
+  \item Built an end-to-end regression pipeline to forecast airline ticket prices from structured travel data, applying feature engineering, cross-validation, and hyperparameter tuning to minimize Mean Absolute Error.
+  \item Performed exploratory data analysis to surface key pricing drivers and produced visualizations to communicate insights for strategic decision-making.
+\end{project}
+
+% ==================== EDUCATION ====================
+\section*{Education}
+\vspace{1pt}\hrule\vspace{4pt}
+\textbf{Bachelor of Technology in Computer Science} \hfill \textbf{Tirumala Engineering College, Narasaraopet} \\
+\textit{January 2021 -- May 2024} \quad CGPA: 7.86 / 10
+
+\textbf{Intermediate (MPC)} \hfill \textbf{Bhavana Junior College, Narasaraopet} \\
+\textit{June 2018 -- March 2020} \quad CGPA: 9.46 / 10
+
+\textbf{Secondary School Certificate} \hfill \textbf{Sindhu High School, Narasaraopet} \\
+\textit{June 2017 -- March 2018} \quad CGPA: 10.0 / 10
+
+\vspace{6pt}
+
+% ==================== CERTIFICATIONS ====================
+\section*{Certifications}
+\vspace{1pt}\hrule\vspace{4pt}
+\begin{itemize}
+  \item Cloud Computing --- NPTEL (IIT-backed national certification)
+  \item AI and Machine Learning --- Amazon Web Services (AWS)
+\end{itemize}
+
+% ==================== INTERESTS ====================
+\section*{Interests}
+\vspace{1pt}\hrule\vspace{4pt}
+\begin{itemize}
+  \item Distributed Systems, Scalability \& High-Performance Computing
+  \item Problem Solving, Algorithms \& Data Structures
+  \item AI Innovations \& Emerging Tech Trends
+\end{itemize}
+
+\end{document}
