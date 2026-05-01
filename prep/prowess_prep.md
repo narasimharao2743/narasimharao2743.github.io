@@ -2,9 +2,7 @@
 
 ---
 
-## PART 1: About Prowesssoft
-
-### Company at a Glance
+## About Prowesssoft (Prowess Software Services)
 
 | Detail | Info |
 |---|---|
@@ -17,18 +15,6 @@
 
 **What they do:** Enterprise IT integration — connecting company systems using MuleSoft, Kafka, APIs. They are a **MuleSoft Premier Partner** (top tier, won Partner of the Year 2024 & 2025 in Americas). They serve Finance, Healthcare, Retail, and Logistics clients worldwide (Fortune 500 companies).
 
-### Technologies They Use
-
-| Category | Technologies |
-|---|---|
-| Primary Platform | MuleSoft Anypoint Platform |
-| iPaaS & Integration | Boomi, TIBCO, WSO2, IBM IIB, WebMethods, BizTalk |
-| API Gateways | Kong, AWS API Gateway, Azure Logic Apps, Apigee |
-| Messaging/Streaming | Apache Kafka |
-| CRM | Salesforce (Summit Partner) |
-| AI | Salesforce Agentforce, CurieTech AI, Parabola9 |
-| Cloud | AWS, Azure |
-
 ### Your Fit vs Their Stack
 
 | Your Skills | Their Stack | Match? |
@@ -39,28 +25,44 @@
 | PyFlink / Stream Processing | Kafka-based event-driven arch | Relevant |
 | ClickHouse / Redis | Not their core, but data layer | Partial |
 | MuleSoft | Not on your resume | Gap |
+| Salesforce | Not on your resume | Gap |
 
-### Culture (Glassdoor)
-- Pros: Good learning environment, senior engineers accessible, certified "Great Place to Work"
+### What to Expect in the Interview
+
+1. **Kafka deep-dive** — consumer groups, offsets, deduplication, fault tolerance
+2. **Python OOP & backend** — standard Python questions, REST API design with Flask
+3. **System Design** — "Design a real-time data pipeline" (you've built this — Solana/Kafka/ClickHouse)
+4. **Why Prowesssoft?** — "I've been working with event-driven architectures and Kafka — integration is the next natural step."
+
+### Company Culture (Glassdoor)
+- Pros: Good learning environment, senior engineers accessible, "Great Place to Work" certified
 - Cons: Fast-paced, employees handle many responsibilities
 - 67% rate interviews as positive
 
-### What to Expect in the Interview
-1. **Kafka deep-dive** — consumer groups, offsets, deduplication, fault tolerance, checkpointing
-2. **Python OOP & backend** — standard Python, REST API design with Flask
-3. **System Design** — "Design a real-time data pipeline" — you've built this, talk through Solana/Kafka/ClickHouse
-4. **Why Prowesssoft?** — "I've been working with event-driven architectures and Kafka — integration is the next natural step."
+---
 
-### Quick Prep Checklist
-- [ ] Explain your Kafka pipeline end-to-end (50K events/day, dedup, scoring)
-- [ ] Revisit Python decorators, OOP, generators
-- [ ] Prepare 2–3 STAR stories from Spizen & Algonox
-- [ ] Know what MuleSoft is (enterprise integration platform by Salesforce)
-- [ ] Ask them: "What does the Python/backend team work on specifically?"
+## Key Interview Questions Quick Reference
+
+| Question | Answer |
+|---|---|
+| `list` vs `tuple` | List: mutable, unhashable. Tuple: immutable, hashable (usable as dict key) |
+| `==` vs `is` | `==` value equality, `is` identity (same object in memory) |
+| `deepcopy` vs `copy` | `copy`: new object but nested refs shared. `deepcopy`: fully independent clone |
+| What is GIL? | Mutex allowing only 1 thread to run Python bytecode at a time. Released during I/O. |
+| `@classmethod` vs `@staticmethod` | classmethod gets `cls`, staticmethod gets neither. classmethod used for alternate constructors. |
+| What is a generator? | Function using `yield`. Lazy — produces values one at a time without storing all in memory. |
+| What is a closure? | Inner function that remembers variables from enclosing scope even after outer function returns. |
+| `__str__` vs `__repr__` | `__str__`: user-friendly (for print). `__repr__`: developer string (for debugging, unambiguous). |
+| How does `dict` work? | Hash table. Average O(1) get/set. Keys must be hashable. |
+| `*args` vs `**kwargs` | `*args`: positional → tuple. `**kwargs`: keyword → dict. |
+| MRO | C3 linearization algorithm. `Dog.__mro__` shows the order Python looks for methods. |
+| `__new__` vs `__init__` | `__new__` creates the instance, `__init__` initializes it. |
+| `None` check | Always `if x is None`, never `if x == None` |
+| Mutable default argument | Bug trap: `def f(lst=[])` shares same list. Use `def f(lst=None): lst = lst or []` |
 
 ---
 
-## PART 2: Complete Python Brush-Up
+# Complete Python Brush-Up
 
 ---
 
@@ -79,19 +81,16 @@ f2 = 1.5e3    # 1500.0
 
 # Strings (immutable)
 s = "hello"
-s2 = 'world'
 s3 = """multi
 line"""
 
 # Boolean
-t = True
-f = False
 print(int(True))   # 1
 print(int(False))  # 0
 
 # None
 x = None
-print(x is None)   # True  ← always use 'is' for None
+print(x is None)   # True  <- always use 'is' for None
 
 # Type checking
 print(type(42))                      # <class 'int'>
@@ -116,19 +115,16 @@ print(s[::-1])   # reverse
 # String methods
 print(s.upper())
 print(s.lower())
-print(s.strip())          # remove whitespace both ends
-print(s.lstrip())         # left only
-print(s.rstrip())         # right only
+print(s.strip())           # remove whitespace both ends
 print(s.replace("Rao", "Kumar"))
-print(s.split(","))       # returns list
+print(s.split(","))        # returns list
 print(",".join(["a","b","c"]))   # 'a,b,c'
 print(s.startswith("Nara"))      # True
 print(s.endswith("rao"))         # True
-print(s.find("sim"))      # index of first match, -1 if not found
-print(s.count("a"))       # count occurrences
-print(s.isdigit())        # False
-print("123".isdigit())    # True
-print(s.isalpha())        # True
+print(s.find("sim"))       # index of first match, -1 if not found
+print(s.count("a"))        # count occurrences
+print("123".isdigit())     # True
+print(s.isalpha())         # True
 
 # Formatting
 name = "Rao"
@@ -136,14 +132,14 @@ age = 25
 
 # f-string (preferred, Python 3.6+)
 print(f"Name: {name}, Age: {age}")
-print(f"Price: {3.14159:.2f}")    # 2 decimal places
-print(f"{'left':<10}|")           # left-align in width 10
-print(f"{'right':>10}|")          # right-align
+print(f"Price: {3.14159:.2f}")   # 2 decimal places
+print(f"{'left':<10}|")          # left-align in width 10
+print(f"{'right':>10}|")         # right-align
 
 # .format()
 print("Name: {}, Age: {}".format(name, age))
 
-# % formatting (old style)
+# % formatting (old style, still asked)
 print("Name: %s, Age: %d" % (name, age))
 
 # Raw strings
@@ -173,12 +169,12 @@ print(lst.index(4))    # 2
 print(lst.count(1))    # 2
 
 # Sorting
-lst.sort()             # in-place
+lst.sort()             # in-place, modifies original
 lst.sort(reverse=True)
 new = sorted(lst)      # returns new list, original unchanged
 lst.reverse()          # in-place reverse
 
-# Copy (important interview topic!)
+# Copy — IMPORTANT INTERVIEW TOPIC
 a = [1, [2, 3], 4]
 b = a               # SAME reference, NOT a copy
 c = a.copy()        # shallow copy
@@ -201,16 +197,12 @@ first, *rest = [1, 2, 3, 4, 5]   # first=1, rest=[2,3,4,5]
 ## 4. Tuples
 
 ```python
+# Immutable lists
 t = (1, 2, 3)
-t2 = 1, 2, 3      # parentheses optional
 single = (1,)     # MUST have trailing comma for single element
-empty = ()
 
 # Can be used as dict keys (because hashable)
 d = {(1, 2): "point"}
-
-# Unpacking
-x, y, z = t
 
 # Named tuple
 from collections import namedtuple
@@ -228,9 +220,9 @@ print(p[0])       # 3 (index access still works)
 d = {"name": "Rao", "age": 25}
 
 # Access
-print(d["name"])             # KeyError if missing
-print(d.get("name"))         # None if missing
-print(d.get("city", "N/A")) # default if missing
+print(d["name"])              # KeyError if missing
+print(d.get("name"))          # None if missing
+print(d.get("city", "N/A"))   # default if missing
 
 # Modification
 d["city"] = "Bangalore"
@@ -240,21 +232,17 @@ removed = d.pop("age")
 d.setdefault("score", 0)    # sets only if key doesn't exist
 
 # Iteration
-for key in d: print(key)
-for key, value in d.items(): print(key, value)
+for key in d: pass
+for key, value in d.items(): pass
 for key in d.keys(): pass
 for val in d.values(): pass
 
-# Checking
-print("name" in d)          # True
-
 # Merging (Python 3.9+)
-d1 = {"a": 1}
-d2 = {"b": 2}
-merged = d1 | d2            # {"a":1, "b":2}
+merged = {"a": 1} | {"b": 2}    # {"a": 1, "b": 2}
 
 # Dict comprehension
 squares = {x: x**2 for x in range(5)}
+inverted = {v: k for k, v in d.items()}  # swap keys/values
 
 # Nested dict
 config = {
@@ -270,8 +258,9 @@ print(config["kafka"]["port"])  # 9092
 
 ```python
 s = {1, 2, 3, 4}
-empty_set = set()   # NOT {} — that creates empty dict!
+empty_set = set()   # NOT {} <- {} creates empty dict!
 
+# Operations
 s.add(5)
 s.remove(3)         # KeyError if not found
 s.discard(99)       # no error if not found
@@ -287,7 +276,7 @@ print(a ^ b)        # symmetric diff {1,2,5,6}
 # Membership O(1) — much faster than list
 print(3 in s)
 
-# frozenset — immutable, usable as dict key
+# frozenset — immutable set, can be dict key
 fs = frozenset([1, 2, 3])
 ```
 
@@ -296,46 +285,24 @@ fs = frozenset([1, 2, 3])
 ## 7. Control Flow
 
 ```python
-# if / elif / else
-x = 10
-if x > 10:
-    print("big")
-elif x == 10:
-    print("ten")
-else:
-    print("small")
-
 # Ternary
 result = "even" if x % 2 == 0 else "odd"
 
-# for loop
-for i in range(5): print(i)         # 0 1 2 3 4
-for i in range(2, 10, 2): print(i)  # 2 4 6 8
-
 # enumerate
-fruits = ["apple", "banana", "cherry"]
-for i, fruit in enumerate(fruits, start=1):
+for i, fruit in enumerate(["apple", "banana"], start=1):
     print(i, fruit)
 
 # zip
-names = ["Rao", "Ram", "Raj"]
-ages = [25, 30, 22]
-for name, age in zip(names, ages):
+for name, age in zip(["Rao","Ram"], [25,30]):
     print(name, age)
 
-# while
-n = 5
-while n > 0:
-    print(n)
-    n -= 1
-
-# break, continue, else
+# break / continue / else on loop
 for i in range(10):
     if i == 3: continue
     if i == 7: break
     print(i)
 else:
-    print("done")  # only if loop completed without break
+    print("loop completed without break")  # won't print (we broke)
 ```
 
 ---
@@ -347,32 +314,22 @@ else:
 def power(base, exp=2):
     return base ** exp
 
-# *args — variable positional (tuple)
-def total(*args):
-    return sum(args)
+# *args and **kwargs
+def func(*args, **kwargs):
+    print(args)    # tuple
+    print(kwargs)  # dict
 
-# **kwargs — variable keyword (dict)
-def display(**kwargs):
-    for key, val in kwargs.items():
-        print(f"{key}: {val}")
+func(1, 2, name="Rao")
 
-# Combining all
-def func(a, b, *args, keyword_only, **kwargs):
+# Keyword-only arguments (after *)
+def connect(host, port, *, timeout=30):
     pass
 
-# Unpacking when calling
-nums = [1, 2, 3]
-print(total(*nums))
-
-config = {"name": "Rao", "age": 25}
-display(**config)
+connect("localhost", 9092, timeout=60)
 
 # Lambda
 square = lambda x: x ** 2
-add = lambda x, y: x + y
-
-# map, filter, sorted with lambda
-data = [{"name": "Rao", "age": 25}, {"name": "Ram", "age": 30}]
+data = [{"name": "Rao", "age": 25}, {"name": "Ram", "age": 22}]
 data.sort(key=lambda x: x["age"])
 
 nums = [1, 2, 3, 4, 5]
@@ -381,6 +338,13 @@ doubled = list(map(lambda x: x * 2, nums))
 
 from functools import reduce
 product = reduce(lambda x, y: x * y, nums)  # 120
+
+# Unpacking when calling
+def total(*args): return sum(args)
+print(total(*[1, 2, 3]))         # unpack list as args
+
+config = {"name": "Rao", "age": 25}
+# create_user(**config)           # unpack dict as kwargs
 ```
 
 ---
@@ -388,7 +352,7 @@ product = reduce(lambda x, y: x * y, nums)  # 120
 ## 9. Scope & Closures
 
 ```python
-# LEGB Rule: Local → Enclosing → Global → Built-in
+# LEGB Rule: Local -> Enclosing -> Global -> Built-in
 
 # global keyword
 count = 0
@@ -407,19 +371,16 @@ def counter():
 
 c = counter()
 print(c())  # 1
-print(c())  # 2
-print(c())  # 3  ← closure remembers 'n'
+print(c())  # 2  <- closure remembers 'n'
 
-# Closures
+# Closure
 def multiplier(factor):
     def multiply(x):
-        return x * factor
+        return x * factor   # 'factor' remembered
     return multiply
 
 double = multiplier(2)
-triple = multiplier(3)
 print(double(5))   # 10
-print(triple(5))   # 15
 ```
 
 ---
@@ -433,19 +394,16 @@ evens = [x for x in range(20) if x % 2 == 0]
 flat = [x for row in [[1,2],[3,4]] for x in row]  # flatten
 
 # Dict
-d = {k: v for k, v in zip("abcde", range(5))}
+d = {k: v for k, v in zip("abc", [1,2,3])}
 inverted = {v: k for k, v in d.items()}
 
 # Set
-unique_squares = {x**2 for x in [-2, -1, 0, 1, 2]}  # {0, 1, 4}
+unique_squares = {x**2 for x in [-2,-1,0,1,2]}  # {0,1,4}
 
-# Generator expression (lazy — no memory used until iterated)
-gen = (x**2 for x in range(1_000_000))
+# Generator expression (lazy — memory efficient)
+gen = (x**2 for x in range(1_000_000))  # nothing computed yet
 print(next(gen))  # 0
-
-# Nested
-matrix = [[1,2,3],[4,5,6],[7,8,9]]
-transposed = [[row[i] for row in matrix] for i in range(3)]
+print(next(gen))  # 1
 ```
 
 ---
@@ -453,7 +411,7 @@ transposed = [[row[i] for row in matrix] for i in range(3)]
 ## 11. Iterators & Generators
 
 ```python
-# Iterator protocol: __iter__ and __next__
+# Iterator protocol
 class Range:
     def __init__(self, start, end):
         self.current = start
@@ -475,11 +433,21 @@ for i in Range(1, 4):
 # Generator function
 def countdown(n):
     while n > 0:
-        yield n
-        n -= 1
+        yield n         # pause here, return n
+        n -= 1          # resume from here next time
 
-for i in countdown(5):
-    print(i)
+# yield from
+def chain(*iterables):
+    for it in iterables:
+        yield from it
+
+print(list(chain([1,2], [3,4])))  # [1,2,3,4]
+
+# Practical: read large file line-by-line
+def read_large_file(filepath):
+    with open(filepath) as f:
+        for line in f:
+            yield line.strip()
 
 # Generator with send()
 def accumulator():
@@ -489,23 +457,9 @@ def accumulator():
         total += value
 
 gen = accumulator()
-next(gen)            # prime the generator
-print(gen.send(10))  # 10
-print(gen.send(20))  # 30
-print(gen.send(5))   # 35
-
-# yield from
-def chain(*iterables):
-    for it in iterables:
-        yield from it
-
-print(list(chain([1,2], [3,4], [5,6])))  # [1,2,3,4,5,6]
-
-# Practical: reading large files line by line
-def read_large_file(filepath):
-    with open(filepath) as f:
-        for line in f:
-            yield line.strip()
+next(gen)           # prime the generator
+print(gen.send(10)) # 10
+print(gen.send(20)) # 30
 ```
 
 ---
@@ -517,7 +471,7 @@ import functools
 
 # Basic decorator
 def my_decorator(func):
-    @functools.wraps(func)
+    @functools.wraps(func)    # preserves __name__, __doc__
     def wrapper(*args, **kwargs):
         print("Before")
         result = func(*args, **kwargs)
@@ -574,28 +528,12 @@ def retry(times=3, exceptions=(Exception,)):
 def call_api():
     pass
 
-# Class-based decorator
-class Cache:
-    def __init__(self, func):
-        self.func = func
-        self.cache = {}
-        functools.update_wrapper(self, func)
-
-    def __call__(self, *args):
-        if args not in self.cache:
-            self.cache[args] = self.func(*args)
-        return self.cache[args]
-
-@Cache
-def fibonacci(n):
-    if n < 2: return n
-    return fibonacci(n-1) + fibonacci(n-2)
-
-# Stacking decorators (applied bottom-up)
+# Stacking decorators
 @timer
 @retry(times=3)
 def my_func():
     pass
+# Applied bottom-up: retry wraps my_func first, then timer wraps retry
 ```
 
 ---
@@ -609,15 +547,15 @@ class DatabaseConnection:
         self.url = url
 
     def __enter__(self):
-        self.conn = connect(self.url)
-        return self.conn
+        # self.conn = connect(self.url)
+        return self  # this is what 'as' gets
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.conn.close()
+        # self.conn.close()
         return False   # False = don't suppress exceptions
 
 with DatabaseConnection("localhost") as conn:
-    conn.execute("SELECT 1")
+    pass
 
 # Generator-based (simpler)
 from contextlib import contextmanager
@@ -633,11 +571,11 @@ def timer():
 
 with timer():
     import time
-    time.sleep(1)
+    time.sleep(0.1)
 
 # Multiple context managers
-with open("in.txt") as fin, open("out.txt", "w") as fout:
-    fout.write(fin.read())
+with open("in.txt", "w") as fin, open("out.txt", "w") as fout:
+    fout.write("hello")
 
 # suppress — ignore specific exceptions
 from contextlib import suppress
@@ -652,10 +590,10 @@ with suppress(FileNotFoundError):
 
 ```python
 class Animal:
-    species_count = 0   # class variable (shared across ALL instances)
+    species_count = 0   # class variable (shared across all instances)
 
     def __init__(self, name, age):
-        self.name = name      # instance variable
+        self.name = name    # instance variable
         self.age = age
         Animal.species_count += 1
 
@@ -663,17 +601,18 @@ class Animal:
         raise NotImplementedError("Subclass must implement")
 
     @classmethod
-    def get_count(cls):       # receives class, not instance
+    def get_count(cls):
         return cls.species_count
 
     @staticmethod
-    def is_valid_age(age):    # no access to class or instance
+    def is_valid_age(age):
         return 0 <= age <= 150
 
     @property
     def info(self):
         return f"{self.name} ({self.age})"
 
+    # Dunder methods
     def __str__(self):
         return f"Animal: {self.name}"
 
@@ -688,9 +627,6 @@ class Animal:
 
     def __len__(self):
         return self.age
-
-    def __contains__(self, item):
-        return item in self.name
 
 
 class Dog(Animal):
@@ -717,7 +653,7 @@ dog = Dog("Rex", 3, "Lab")
 print(isinstance(dog, Dog))     # True
 print(isinstance(dog, Animal))  # True (inherits)
 print(type(dog) == Dog)         # True
-print(type(dog) == Animal)      # False (exact type)
+print(type(dog) == Animal)      # False (type is exact)
 
 # Multiple Inheritance & MRO
 class A:
@@ -738,7 +674,7 @@ class D(B, C):
         print("D")
         super().method()
 
-D().method()       # D → B → C → A
+D().method()      # D -> B -> C -> A
 print(D.__mro__)
 ```
 
@@ -763,16 +699,12 @@ class Pipeline(ABC):
             return self.process(event)
         raise ValueError("Invalid event")
 
-
 class TradePipeline(Pipeline):
     def process(self, event):
         return {"processed": True, **event}
 
     def validate(self, event):
         return "symbol" in event and "price" in event
-
-# Pipeline()       # TypeError: Can't instantiate abstract class
-TradePipeline()    # Works
 ```
 
 ---
@@ -782,18 +714,10 @@ TradePipeline()    # Works
 ```python
 # Exception hierarchy
 # BaseException
-#   ├── SystemExit
-#   ├── KeyboardInterrupt
-#   └── Exception
-#       ├── ValueError
-#       ├── TypeError
-#       ├── KeyError
-#       ├── IndexError
-#       ├── AttributeError
-#       ├── NameError
-#       ├── RuntimeError
-#       ├── IOError / OSError
-#       └── StopIteration
+#   SystemExit, KeyboardInterrupt
+#   Exception
+#     ValueError, TypeError, KeyError, IndexError,
+#     AttributeError, NameError, RuntimeError, IOError, StopIteration
 
 try:
     result = 10 / 0
@@ -803,7 +727,7 @@ except (ValueError, TypeError) as e:
     print(f"Value/Type error: {e}")
 except Exception as e:
     print(f"Unexpected: {e}")
-    raise                      # re-raise same exception
+    raise              # re-raise same exception
 else:
     print("No exception occurred")
 finally:
@@ -819,20 +743,11 @@ class PipelineError(Exception):
 class ValidationError(PipelineError):
     pass
 
-class ProcessingError(PipelineError):
-    pass
-
 # Exception chaining
 try:
     int("abc")
 except ValueError as e:
     raise RuntimeError("Failed to parse config") from e
-
-# Suppress original
-try:
-    int("abc")
-except ValueError:
-    raise RuntimeError("Config error") from None
 ```
 
 ---
@@ -841,19 +756,16 @@ except ValueError:
 
 ```python
 # Writing
-with open("data.txt", "w") as f:
+with open("data.txt", "w") as f:   # 'w' overwrites
     f.write("Hello\n")
     f.writelines(["line1\n", "line2\n"])
 
-with open("data.txt", "a") as f:   # append
+with open("data.txt", "a") as f:   # 'a' appends
     f.write("New line\n")
 
 # Reading
 with open("data.txt") as f:
     content = f.read()          # entire file as string
-
-with open("data.txt") as f:
-    lines = f.readlines()       # list of lines
 
 with open("data.txt") as f:
     for line in f:              # memory efficient
@@ -869,24 +781,12 @@ with open("data.json", "w") as f:
 with open("data.json") as f:
     loaded = json.load(f)
 
-json_str = json.dumps(data)     # dict → string
-parsed = json.loads(json_str)   # string → dict
-
-# CSV
-import csv
-with open("data.csv", "w", newline="") as f:
-    writer = csv.DictWriter(f, fieldnames=["name", "age"])
-    writer.writeheader()
-    writer.writerow({"name": "Rao", "age": 25})
-
-with open("data.csv") as f:
-    reader = csv.DictReader(f)
-    for row in reader:
-        print(row)
+json_str = json.dumps(data)     # dict -> string
+parsed = json.loads(json_str)   # string -> dict
 
 # pathlib
 from pathlib import Path
-p = Path("data/files/output.txt")
+p = Path("data/output.txt")
 p.parent.mkdir(parents=True, exist_ok=True)
 p.write_text("content")
 content = p.read_text()
@@ -896,38 +796,14 @@ files = list(Path(".").glob("*.py"))
 
 ---
 
-## 18. Modules & Packages
+## 18. Collections Module
 
 ```python
-import os
-from os import path, getcwd
-from os.path import join, exists
-import numpy as np
-
-# __name__ guard
-if __name__ == "__main__":
-    # Only runs when executed directly, not when imported
-    main()
-
-# Relative imports (inside packages)
-from . import utils           # same package
-from ..models import Trade    # parent package
-
-# Dynamic imports
-import importlib
-module = importlib.import_module("mypackage.utils")
-```
-
----
-
-## 19. Collections Module
-
-```python
-from collections import defaultdict, Counter, deque, OrderedDict, namedtuple
+from collections import defaultdict, Counter, deque, namedtuple
 
 # defaultdict — no KeyError
 word_groups = defaultdict(list)
-for word in ["apple", "ant", "banana", "bear", "cat"]:
+for word in ["apple", "ant", "banana", "bear"]:
     word_groups[word[0]].append(word)
 
 count_map = defaultdict(int)
@@ -936,25 +812,24 @@ for char in "abracadabra":
 
 # Counter
 c = Counter("abracadabra")
-print(c)                    # Counter({'a': 5, 'b': 2, ...})
 print(c.most_common(3))     # [('a', 5), ('b', 2), ('r', 2)]
-print(c["z"])               # 0 — no KeyError!
+print(c["z"])               # 0 (no KeyError!)
 
 c1 = Counter(a=3, b=2)
 c2 = Counter(a=1, b=4)
 print(c1 + c2)   # Counter({'b': 6, 'a': 4})
 print(c1 - c2)   # Counter({'a': 2})
 
-# deque — O(1) append/pop from both ends
+# deque — O(1) on both sides
 dq = deque([1, 2, 3])
-dq.append(4)           # right
-dq.appendleft(0)       # left
-dq.pop()               # remove right
-dq.popleft()           # remove left
-dq.rotate(1)           # rotate right
+dq.append(4)        # right
+dq.appendleft(0)    # left
+dq.pop()
+dq.popleft()
+dq.rotate(1)
 
-dq = deque(maxlen=3)   # fixed size, auto-drops oldest
-dq.extend([1,2,3,4])   # [2,3,4]
+dq = deque(maxlen=3)    # fixed size, drops oldest
+dq.extend([1,2,3,4])    # [2,3,4]
 
 # namedtuple
 Trade = namedtuple("Trade", ["symbol", "price", "volume"])
@@ -966,10 +841,10 @@ t2 = t._replace(price=51000.0)
 
 ---
 
-## 20. functools Module
+## 19. functools Module
 
 ```python
-from functools import lru_cache, cache, partial, reduce, wraps, total_ordering
+from functools import lru_cache, partial, reduce, total_ordering
 
 # lru_cache — memoization
 @lru_cache(maxsize=128)
@@ -981,23 +856,15 @@ print(fib(50))
 print(fib.cache_info())
 fib.cache_clear()
 
-# cache (Python 3.9+) — unlimited lru_cache
-@cache
-def expensive(n):
-    return n ** 2
-
-# partial — fix some arguments
+# partial — pre-fill arguments
 def multiply(x, y):
     return x * y
 
 double = partial(multiply, y=2)
-triple = partial(multiply, y=3)
-print(double(5))   # 10
+print(double(5))  # 10
 
 # reduce
-nums = [1, 2, 3, 4, 5]
-product = reduce(lambda x, y: x * y, nums)   # 120
-total = reduce(lambda x, y: x + y, nums, 0)  # 15
+product = reduce(lambda x, y: x * y, [1,2,3,4,5])  # 120
 
 # total_ordering
 @total_ordering
@@ -1011,71 +878,65 @@ class Person:
 
     def __lt__(self, other):
         return self.age < other.age
-    # >, >=, <= automatically work now!
+    # Now >, >=, <= automatically work!
 ```
 
 ---
 
-## 21. Itertools Module
+## 20. itertools Module
 
 ```python
 import itertools
 
-# count — infinite counter
-for i in itertools.count(10, 2):
-    if i > 20: break
-
-# cycle — infinite cycle
-colors = itertools.cycle(["red", "green", "blue"])
-for _ in range(6):
-    print(next(colors))
-
-# chain
+# chain — combine iterables
 combined = list(itertools.chain([1,2], [3,4], [5,6]))
 
-# islice — slice any iterable
+# islice — slice any iterable (including generators)
 gen = (x**2 for x in range(1000))
-first_five = list(itertools.islice(gen, 5))   # [0,1,4,9,16]
+first_five = list(itertools.islice(gen, 5))  # [0,1,4,9,16]
 
 # combinations & permutations
-print(list(itertools.combinations([1,2,3], 2)))
+list(itertools.combinations([1,2,3], 2))
 # [(1,2),(1,3),(2,3)]
 
-print(list(itertools.permutations([1,2,3], 2)))
+list(itertools.permutations([1,2,3], 2))
 # [(1,2),(1,3),(2,1),(2,3),(3,1),(3,2)]
 
 # product — cartesian product
-print(list(itertools.product([0,1], repeat=3)))   # binary 000-111
+list(itertools.product([0,1], repeat=3))   # binary 000-111
 
 # groupby
-data = [("a",1),("a",2),("b",3),("b",4),("a",5)]
+data = [("a",1),("a",2),("b",3),("b",4)]
 for key, group in itertools.groupby(data, key=lambda x: x[0]):
     print(key, list(group))
+
+# cycle
+colors = itertools.cycle(["red", "green", "blue"])
+for _ in range(6):
+    print(next(colors))
 ```
 
 ---
 
-## 22. Concurrency — Full
+## 21. Concurrency — Full
 
 ```python
 # ===== THREADING =====
 import threading
 
-def worker(n, results, lock):
-    import time
-    time.sleep(0.1)
+results = []
+lock = threading.Lock()
+
+def worker(n):
     with lock:
         results.append(n * 2)
 
-results = []
-lock = threading.Lock()
-threads = [threading.Thread(target=worker, args=(i, results, lock)) for i in range(5)]
+threads = [threading.Thread(target=worker, args=(i,)) for i in range(5)]
 for t in threads: t.start()
 for t in threads: t.join()
 
 # Thread-safe queue
 from queue import Queue
-
 q = Queue()
 
 def producer():
@@ -1089,11 +950,6 @@ def consumer():
         if item is None: break
         print(f"Processing {item}")
 
-t1 = threading.Thread(target=producer)
-t2 = threading.Thread(target=consumer)
-t1.start(); t2.start()
-t1.join(); t2.join()
-
 # ===== MULTIPROCESSING =====
 from multiprocessing import Pool
 
@@ -1101,13 +957,13 @@ def cpu_task(n):
     return sum(i**2 for i in range(n))
 
 with Pool(processes=4) as pool:
-    results = pool.map(cpu_task, [10000, 20000, 30000, 40000])
+    results = pool.map(cpu_task, [10000, 20000, 30000])
 
 # ===== ASYNCIO =====
 import asyncio
 
 async def fetch(url):
-    await asyncio.sleep(0.5)   # simulate I/O
+    await asyncio.sleep(0.5)   # simulate network call
     return f"data from {url}"
 
 async def main():
@@ -1117,15 +973,6 @@ async def main():
     return results
 
 results = asyncio.run(main())
-
-# Async context manager
-class AsyncDBConn:
-    async def __aenter__(self):
-        self.conn = await connect_async()
-        return self.conn
-
-    async def __aexit__(self, *args):
-        await self.conn.close()
 
 # Async generator
 async def event_stream():
@@ -1137,51 +984,31 @@ async def consume():
     async for event in event_stream():
         print(event)
 
-# asyncio.wait vs gather
-async def main():
-    tasks = [asyncio.create_task(fetch(url)) for url in ["url1","url2"]]
-
-    # gather — simple, one failure = all fail (by default)
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-
-    # wait — more control
-    done, pending = await asyncio.wait(tasks, timeout=5.0)
-```
-
-### GIL — Global Interpreter Lock
-
-```
-- Only 1 thread executes Python bytecode at a time
-- GIL is RELEASED during I/O operations (network, file, sleep)
-- GIL is NOT released during pure Python computation
-
-Decision table:
-┌─────────────────┬──────────────────────────┐
-│ Task type       │ Best tool                │
-├─────────────────┼──────────────────────────┤
-│ I/O-bound       │ asyncio or threading     │
-│ CPU-bound       │ multiprocessing          │
-│ High-concurrency│ asyncio                  │
-│ Kafka consumers │ asyncio or threading     │
-└─────────────────┴──────────────────────────┘
+# GIL Summary:
+# - Only 1 thread runs Python bytecode at a time
+# - GIL is RELEASED during I/O (file, network, sleep)
+# - Threading  : good for I/O-bound
+# - Multiprocess: good for CPU-bound (separate process = separate GIL)
+# - asyncio    : best for high-concurrency I/O (single thread, cooperative)
 ```
 
 ---
 
-## 23. Type Hints & Dataclasses
+## 22. Type Hints & Dataclasses
 
 ```python
-from typing import List, Dict, Tuple, Set, Optional, Union, Any, Callable, TypeVar
+from typing import List, Dict, Optional, Union, Any, Callable, TypeVar
 from dataclasses import dataclass, field
 import time
 
-# Type hints
+# Type hints in functions
 def process(events: List[Dict[str, Any]]) -> Optional[Dict]:
     pass
 
 def transform(data: Union[str, bytes]) -> str:
     pass
 
+# Callable type hint
 def apply(func: Callable[[int, int], int], x: int, y: int) -> int:
     return func(x, y)
 
@@ -1218,23 +1045,25 @@ class Item:
 
 ---
 
-## 24. Memory Management
+## 23. Memory Management & GIL
 
 ```python
-import sys
+import sys, gc
 
 x = [1, 2, 3]
-print(sys.getrefcount(x))       # reference count
+print(sys.getrefcount(x))    # reference count
+print(sys.getsizeof([]))     # 56 bytes
+print(sys.getsizeof("hello"))
 
-print(sys.getsizeof([]))         # 56 bytes
-print(sys.getsizeof([1,2,3]))    # 88 bytes
+# del removes reference
+y = x
+del x     # y still holds it, memory not freed yet
 
-import gc
 gc.collect()   # force garbage collection
 
-# __slots__ — reduces memory in classes with many instances
+# __slots__ — reduces memory in classes
 class WithSlots:
-    __slots__ = ["x", "y"]    # no __dict__, saves memory
+    __slots__ = ["x", "y"]   # no __dict__, less memory
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -1242,10 +1071,10 @@ class WithSlots:
 
 ---
 
-## 25. Common Interview Patterns
+## 24. Common Interview Patterns
 
 ```python
-# PATTERN 1: Two Pointers
+# ===== Two Pointers =====
 def is_palindrome(s):
     s = s.lower().replace(" ", "")
     left, right = 0, len(s) - 1
@@ -1256,7 +1085,7 @@ def is_palindrome(s):
         right -= 1
     return True
 
-# PATTERN 2: Sliding Window
+# ===== Sliding Window =====
 def max_sum_subarray(arr, k):
     window_sum = sum(arr[:k])
     max_sum = window_sum
@@ -1265,7 +1094,7 @@ def max_sum_subarray(arr, k):
         max_sum = max(max_sum, window_sum)
     return max_sum
 
-# PATTERN 3: HashMap for O(1) lookup
+# ===== HashMap O(1) lookup =====
 def two_sum(nums, target):
     seen = {}
     for i, num in enumerate(nums):
@@ -1274,7 +1103,7 @@ def two_sum(nums, target):
             return [seen[complement], i]
         seen[num] = i
 
-# PATTERN 4: Stack for balanced brackets
+# ===== Stack — balanced brackets =====
 def is_balanced(s):
     stack = []
     pairs = {")": "(", "}": "{", "]": "["}
@@ -1287,7 +1116,7 @@ def is_balanced(s):
             stack.pop()
     return len(stack) == 0
 
-# PATTERN 5: BFS
+# ===== BFS =====
 from collections import deque
 def bfs(graph, start):
     visited = set()
@@ -1301,7 +1130,7 @@ def bfs(graph, start):
                 visited.add(neighbor)
                 queue.append(neighbor)
 
-# PATTERN 6: LRU Cache (manual)
+# ===== LRU Cache (manual — common interview question) =====
 from collections import OrderedDict
 
 class LRUCache:
@@ -1322,91 +1151,150 @@ class LRUCache:
         if len(self.cache) > self.capacity:
             self.cache.popitem(last=False)
 
-# PATTERN 7: Fibonacci — 4 ways
-# 1. Recursive (slow, O(2^n))
+# ===== Fibonacci — 4 ways =====
+# Recursive (O(2^n)) — slow
 def fib_recursive(n):
     if n < 2: return n
     return fib_recursive(n-1) + fib_recursive(n-2)
 
-# 2. Memoized
+# Memoized (O(n))
 from functools import lru_cache
 @lru_cache
 def fib_memo(n):
     if n < 2: return n
     return fib_memo(n-1) + fib_memo(n-2)
 
-# 3. DP iterative
-def fib_dp(n):
-    dp = [0, 1] + [0]*(n-1)
-    for i in range(2, n+1):
-        dp[i] = dp[i-1] + dp[i-2]
-    return dp[n]
-
-# 4. Optimized O(1) space
+# Optimized DP (O(n) time, O(1) space)
 def fib_optimal(n):
     a, b = 0, 1
     for _ in range(n):
         a, b = b, a+b
     return a
+
+# Generator
+def fib_gen():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a+b
 ```
 
 ---
 
-## 26. Classic Bug — Mutable Default Argument
+## 25. Classic Bug Traps
 
 ```python
-# WRONG
-def add_item(item, lst=[]):
+# BUG 1: Mutable default argument
+def add_item_wrong(item, lst=[]):    # WRONG — list shared across calls!
     lst.append(item)
     return lst
 
-print(add_item(1))   # [1]
-print(add_item(2))   # [1, 2]  ← BUG! same list reused!
-print(add_item(3))   # [1, 2, 3]
-
-# CORRECT
-def add_item(item, lst=None):
+def add_item_correct(item, lst=None):  # CORRECT
     if lst is None:
         lst = []
     lst.append(item)
     return lst
+
+# BUG 2: Late binding in closures
+funcs_wrong = [lambda: i for i in range(5)]
+print([f() for f in funcs_wrong])   # [4,4,4,4,4] — all see last i!
+
+funcs_correct = [lambda i=i: i for i in range(5)]
+print([f() for f in funcs_correct]) # [0,1,2,3,4]
+
+# BUG 3: Modifying list while iterating — WRONG
+lst = [1, 2, 3, 4, 5]
+for item in lst:
+    if item % 2 == 0:
+        lst.remove(item)   # skips items!
+
+# CORRECT
+lst = [item for item in lst if item % 2 != 0]
+
+# BUG 4: is vs == for integers
+a = 1000
+b = 1000
+print(a == b)   # True
+print(a is b)   # False (large ints not cached)
+
+x = 5
+y = 5
+print(x is y)   # True (small ints -5 to 256 are cached!)
 ```
 
 ---
 
-## 27. Quick Reference — Most-Asked Interview Answers
+## 26. Sorting Algorithms
 
-| Question | Answer |
-|---|---|
-| `list` vs `tuple` | List: mutable, unhashable. Tuple: immutable, hashable (usable as dict key) |
-| `==` vs `is` | `==` value equality, `is` identity (same object in memory) |
-| `deepcopy` vs `copy` | `copy`: new object, nested refs shared. `deepcopy`: fully independent clone |
-| What is GIL? | Mutex allowing only 1 thread to run Python bytecode at a time. Released during I/O. |
-| `@classmethod` vs `@staticmethod` | classmethod gets `cls`, staticmethod gets neither. classmethod used for alternate constructors. |
-| What is a generator? | Function using `yield`. Lazy — produces values one at a time without storing all in memory. |
-| What is a closure? | Inner function that remembers variables from enclosing scope after outer function returns. |
-| `__str__` vs `__repr__` | `__str__`: user-friendly (for print). `__repr__`: developer string (for debugging). |
-| How does `dict` work? | Hash table. Average O(1) get/set. Keys must be hashable. |
-| `*args` vs `**kwargs` | `*args`: positional → tuple. `**kwargs`: keyword → dict. |
-| `map` vs list comprehension | Both equivalent. List comprehension is more Pythonic. |
-| MRO | C3 linearization. `Dog.__mro__` shows order Python looks up methods. |
-| `__new__` vs `__init__` | `__new__` creates the instance. `__init__` initializes it. |
-| `None` check | Always `if x is None`, never `if x == None` |
-| Mutable default arg | `def f(lst=[])` — all calls share same list. Use `def f(lst=None): lst = lst or []` |
+```python
+# Python built-in sort — Timsort, O(n log n)
+lst = [3, 1, 4, 1, 5, 9]
+lst.sort()                          # in-place
+sorted_lst = sorted(lst)            # new list
+sorted_lst = sorted(lst, reverse=True)
+sorted_lst = sorted(lst, key=abs)   # custom key
+
+# Sort list of dicts
+people = [{"name": "Rao", "age": 25}, {"name": "Ram", "age": 22}]
+people.sort(key=lambda x: x["age"])
+
+# Sort by multiple keys
+people.sort(key=lambda x: (x["age"], x["name"]))
+
+# Bubble sort (manual)
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+# Binary search
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+
+import bisect
+bisect.bisect_left([1,2,3,5,6], 4)   # 3 (insertion point)
+```
 
 ---
 
-## 28. Leverage Your Real Experience
+## 27. STAR Stories for Interview
 
-When answering, connect to your actual work:
+### Story 1 — Deduplication System (Spizen)
+> "At Spizen, I designed PyFlink streaming jobs with tumbling window aggregations to deduplicate high-velocity blockchain trade data across Kafka topics with fault-tolerant checkpointing. This achieved **95% deduplication accuracy** on 50K+ events per day."
 
-- **Generators** → "In my PyFlink pipeline, I used generators to process 50K trade events daily without loading all into memory at once."
-- **defaultdict** → "I used defaultdict when grouping trade events by token symbol across Kafka topics."
-- **Retry decorator** → "I implemented a retry decorator for Kafka consumer failures with exponential backoff."
-- **Context managers** → "I used context managers to handle ClickHouse and Redis connections cleanly in the pipeline."
-- **asyncio** → "My streaming jobs used async patterns to handle high-concurrency event consumption from multiple Kafka topics."
-- **OOP / Abstract classes** → "I designed the pipeline as an abstract base class so each stream processing job inherits process() and validate() and is interchangeable."
+**Python angle:** Used generators and streaming patterns to avoid loading all events in memory.
+
+### Story 2 — Data Accuracy (Algonox)
+> "At Algonox, I implemented multi-layered business rule validation in Python to clean and reconcile noisy unstructured document data. This boosted extraction accuracy by **40%**."
+
+**Python angle:** Used OOP with abstract base classes for each validation rule, making it extensible.
+
+### Story 3 — Automation (Algonox)
+> "Built an automated email notification microservice in Flask and a KPI reporting module that reduced manual QA effort by **20%**."
+
+**Python angle:** Used decorators for logging, context managers for DB connections, scheduled tasks.
 
 ---
 
-*Good luck tomorrow, Narasimharao! Lead with Kafka and stream processing — that's your strongest card.*
+## 28. Questions to Ask the Interviewer
+
+1. "What does the Python/backend team work on specifically at Prowesssoft?"
+2. "What does the integration stack look like — is it primarily MuleSoft or do you also use Kafka-based pipelines?"
+3. "What does the onboarding look like for new engineers?"
+4. "What's the biggest technical challenge the team is solving right now?"
+
+---
+
+*Prepared: 2026-05-01 | Interview: Prowesssoft (Prowess Software Services)*
