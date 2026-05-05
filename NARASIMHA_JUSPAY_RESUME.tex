@@ -1,0 +1,98 @@
+% -------------------------------------------------
+% Narasimharao Bhavirisetty – Juspay Resume
+% -------------------------------------------------
+\documentclass[10pt]{article}
+\AtBeginDocument{\fontsize{10.5}{13}\selectfont}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{times}
+
+% ----- Remove blue boxes & underlines from links -----
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+    hidelinks
+}
+
+% ----- Page layout -----
+\geometry{a4paper, top=0.45in, bottom=0.45in, left=0.65in, right=0.65in}
+\pagestyle{empty}
+
+% ----- Section heading style -----
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+
+% ----- Tighten itemize globally -----
+\setlist[itemize]{topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt, leftmargin=*}
+
+\begin{document}
+
+% ==================== HEADER ====================
+\begin{center}
+  {\huge\textbf{Narasimharao Bhavirisetty}}\\[3pt]
+  Software Engineer \textbullet{} Backend \& Payments Infrastructure \\[3pt]
+  Bangalore, India \textbullet{} +91 63032 27485 \textbullet{} narasimharao2743@gmail.com \textbullet{} https://linkedin.com/in/narasimharao-bhavirisetty-0526891b0
+\end{center}
+
+\vspace{4pt}
+
+% ==================== PROFESSIONAL SUMMARY ====================
+\section*{Professional Summary}
+\vspace{1pt}\hrule\vspace{4pt}
+Backend Engineer with 1.7+ years of experience building reliable, high-throughput payment and event-driven systems at scale. Proficient in Python with functional programming principles — pure functions, immutability, higher-order functions, and composable pipeline design. Built real-time transaction processing systems handling 50K+ events daily with 99.9\%+ reliability using Apache Kafka, PyFlink, Redis, and ClickHouse. Experienced in API integrations, distributed computing, microservices architecture, and production debugging at scale — directly aligned with Juspay's payments infrastructure and backend centres of excellence.
+
+% ==================== TECHNICAL SKILLS ====================
+\section*{Technical Skills}
+\vspace{1pt}\hrule\vspace{4pt}
+\begin{itemize}
+  \item \textbf{Languages}: Python (functional programming style), Java
+  \item \textbf{Frameworks \& Tools}: Flask, Docker, Kubernetes, Git, Linux, Postman
+  \item \textbf{Databases}: PostgreSQL, MySQL, MSSQL, ClickHouse, Redis
+  \item \textbf{Streaming \& Messaging}: Apache Kafka, Redpanda, PyFlink
+  \item \textbf{API \& Protocols}: REST APIs, gRPC, WebSockets, HTTP
+  \item \textbf{Cloud}: AWS (Basics)
+  \item \textbf{Concepts}: Distributed Systems, Microservices, Functional Programming, Event-Driven Architecture, High-Availability Systems, OOP, Agile, SDLC
+\end{itemize}
+
+% ==================== PROFESSIONAL EXPERIENCE ====================
+\section*{Professional Experience}
+\vspace{1pt}\hrule\vspace{4pt}
+
+\textbf{Software Engineer} \hfill \textit{December 2025 -- Present} \\
+\textbf{Spizen Technologies (CLR3 Ventures), Bangalore, India}
+\begin{itemize}
+  \item Designed and built a high-reliability real-time transaction pipeline processing 50K+ trade events per day through Kafka, PyFlink, ClickHouse, and Redis using composable, functional pipeline design patterns.
+  \item Engineered fault-tolerant stream processing jobs with tumbling window aggregations and checkpointing to deduplicate high-velocity events with 95\% accuracy — ensuring data integrity for all downstream systems.
+  \item Built a real-time composite scoring engine that evaluates every transaction event using multiple quality signals and emits live investment decisions within milliseconds, modelled as pure functional transformations.
+  \item Developed a behavioral classification system using event-driven pipelines to detect anomalous trading patterns, improving platform integrity and signal reliability — analogous to fraud and risk management at scale.
+\end{itemize}
+
+\textbf{Software Engineer} \hfill \textit{September 2024 -- December 2025} \\
+\textbf{Algonox Technologies Pvt Ltd, Hyderabad, India}
+\begin{itemize}
+  \item Boosted data extraction accuracy by 40\% through multi-layered validation logic in Python, designed as composable, stateless transformation functions for clean separation of business rules.
+  \item Built a Flask-based REST API microservice for automated SLA alerts and queue transition notifications, reducing manual monitoring overhead and improving incident response time.
+  \item Developed an automated KPI reporting module tracking extraction accuracy and intervention rates, enabling a 20\% reduction in manual QA effort through data-driven performance reviews.
+  \item Engineered a scheduled user lifecycle management module with authentication and access control policies, ensuring security compliance across the platform.
+\end{itemize}
+
+% ==================== EDUCATION ====================
+\section*{Education}
+\vspace{1pt}\hrule\vspace{4pt}
+\textbf{B.Tech in Computer Science} \hfill \textbf{Tirumala Engineering College, Narasaraopet} \\
+\textit{2021 -- 2024} \quad CGPA: 7.86 / 10
+
+% ==================== CERTIFICATIONS ====================
+\section*{Certifications}
+\vspace{1pt}\hrule\vspace{4pt}
+\begin{itemize}
+  \item Cloud Computing -- NPTEL (IIT-backed national certification)
+  \item AI and Machine Learning -- Amazon Web Services (AWS)
+\end{itemize}
+
+\end{document}
