@@ -2,6 +2,9 @@
 photo.jpg
 Profile Photo.jpg
 
+# Photo-containing resume PDF — keep local only (contains personal photo)
+NARASIMHARAO_RESUME_V2_PHOTO.pdf
+
 # LaTeX build artifacts
 *.aux
 *.log
