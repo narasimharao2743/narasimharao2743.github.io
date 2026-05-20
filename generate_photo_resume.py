@@ -197,7 +197,7 @@ skill_line("Concepts", "REST APIs, Microservices, Distributed Systems, "
 
 # ===================== PROFESSIONAL EXPERIENCE ====================
 heading("Professional Experience")
-exp_header("Software Engineer", "December 2025 " + DASH + " Present",
+exp_header("Software Engineer", "December 2025 " + DASH + " May 2026",
            "Spizen Technologies (CLR3 Ventures), Bangalore, India")
 bullet("Designed and built a real-time data pipeline processing 50K+ trade "
        "events per day through Kafka, PyFlink, ClickHouse, and Redis, "
